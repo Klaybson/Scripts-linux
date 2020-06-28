@@ -1,5 +1,6 @@
 #!/bin/bash
 uname -isv
+echo ""
 echo -n " O que você deseja fazer? (A) Acessar Bk / (B)ackup pagina web (C) BK no MySQL (D)Mover backup (S) Sair?"
 read resposta
 
