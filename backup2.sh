@@ -1,6 +1,6 @@
 #!/bin/bash
 # Variaveis
-DADOS = ' data +% d-% m-% y-% H.% M ' Impressões
+DADOS = ' data +% d-% m-% y-% H.% M '
 uname -isv
 
 
