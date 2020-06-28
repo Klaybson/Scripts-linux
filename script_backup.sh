@@ -1,7 +1,7 @@
 #!/bin/bash
 uname -isv
 echo ""
-echo -n " O que você deseja fazer? (A) Acessar Bk / (B)ackup pagina web (C) BK no MySQL (D)Mover backup (S) Sair?"
+echo -n " O que você deseja fazer? \n(A)Acessar Bk \n(B)ackup pagina web \n(C) BK no MySQL \n(D)Mover backup \n(S) Sair?"
 read resposta
 
 case  "$resposta"  in
