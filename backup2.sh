@@ -6,7 +6,7 @@ uname -isv
 
 echo -n " O que você deseja fazer? (A) Acessar Bk / (B)ackup pagina web (C) BK no MySQL (S) Sair?"
 head resposta
-case  " $ resposta "  in
+case  "$resposta"  in
     a | A | " " )
         if [ -d  " / var / backup " ]
 		then
@@ -32,4 +32,4 @@ case  " $ resposta "  in
     * )
         echo  " Opção inválida "
     ;;
-esac 
+esac  
