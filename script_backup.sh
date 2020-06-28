@@ -1,12 +1,11 @@
 #!/bin/bash
-echo "===========Olá======="
+echo "==============================Olá===================================="
 uname -isv
 hostname
 echo "===========O que você deseja fazer?===============
 (A)Diretorio de Backup.
 (B)Backup da pagina Web.
 (C)Backup do MySQL.
-(D)Mover backup.
 (S)Sair?."
 read resposta
 case  "$resposta"  in
@@ -22,15 +21,29 @@ case  "$resposta"  in
         fi
     ;;
     b | B)
-            tar -cvzf  www-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/www
+       #compacta com data e hora
+       tar -cvzf  www-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/www
+       #Verifica se o diretorio de backup existe. Se existir move
+       if [ ! -d "/var/backups" ]; then
+                echo "Diretorio */var/backups* inexistente "
+                echo "Arquivo Salvo no diretorio:"
+                pwd
+       else
+                mv *.gz /var/backups
+        fi
+
     ;;
     c | C)
         /etc/init.d/mysql stop
         tar -cvzf mysql-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/lib/mysql
         /etc/init.d/mysql start
-    ;;
-    d | D)
-        mv *.gz /var/backups
+         if [ ! -d "/var/backups" ]; then
+                echo "Diretorio */var/backups* inexistente "
+                echo "Arquivo salvo no diretorio:"
+                pwd
+       else
+                mv *.gz /var/backups
+        fi
     ;;
     s | S)
                 echo  " Saindo... "
