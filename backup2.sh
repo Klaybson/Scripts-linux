@@ -1,18 +1,6 @@
 #!/bin/bash
-
 # Variaveis
-DATA='date + %d-%m-%y-%H.%M'
-# Pega o número do ip
-IP_LOCAL = $ ( / sbin / ifconfig | sed -n ' 2 p '  | awk ' {print $ 2} ' )
-
-
-# Nome da placa de rede
-NOME_PLACA = $ ( / sbin / ifconfig | sed -n ' 1 p '  | awk ' {print $ 1} '    ) I
-
-# Impressões
-claro
-
-# Imprime o nome do sistema (arquitetura, distribuição)
+DATA='date + %d-%m-%y-%H.%M'Impressões
 uname -isv
 
 
