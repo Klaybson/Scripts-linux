@@ -25,7 +25,7 @@ do
            b | B)
                 #compacta com data e hora
                 tar -cvzf  www-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/www
-                #Verifica se o diretorio de backup existe. Se existir move
+        #Verifica se o diretorio de backup existe. Se existir move
        if [ ! -d "/var/backups" ]; then
                 echo "Diretorio */var/backups* inexistente "
                 echo "Arquivo Salvo no diretorio:"
@@ -38,7 +38,9 @@ do
        c | C)
                /etc/init.d/mysql stop
                tar -cvzf mysql-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/lib/mysql
+               clear
                /etc/init.d/mysql start
+        #Verifica se o diretorio de backup existe. Se existir move       
         if [ ! -d "/var/backups" ]; then
                 echo "Diretorio */var/backups* inexistente "
                 echo "Arquivo salvo no diretorio:"
