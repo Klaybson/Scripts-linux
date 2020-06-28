@@ -5,17 +5,18 @@ uname -isv
 
 
 echo -n " O que você deseja fazer? (A) Acessar Bk / (B)ackup pagina web (C) BK no MySQL (S) Sair?"
-head resposta
+read resposta
 case  "$resposta"  in
     a | A | " " )
         if [ -d  " / var / backup " ]
 		then
-			echo  " Diretorio não existe"
+			echo  " Diretorio já criado"
 			cd / var / backup
 		else
-			echo "Diretorio criado /var/backup"
+			echo "Diretorio naõ criado /var/backup"
 			mkdir /var/backup
 			cd /var/backup
+			echo "Diretorio criado"
 		fi
     ;;
     b | B)
