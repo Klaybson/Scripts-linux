@@ -8,14 +8,14 @@ echo -n " O que você deseja fazer? (A) Acessar Bk / (B)ackup pagina web (C) BK 
 read resposta
 case  "$resposta"  in
     a | A | " " )
-        if [ -d  "/var/backups" ]
-	then
-		echo  " Diretorio já existe"
-		cd /var/backups
-	else
+        if [ ! -d "/var/backups" ]; then
 		mkdir /var/backups
 		cd /var/backups
 		echo "Diretorio criado"
+	else
+		
+		echo  " Diretorio já existe"
+		cd /var/backups
 	fi
     ;;
     b | B)
@@ -27,9 +27,9 @@ case  "$resposta"  in
 	/etc/init.d/mysql start 
      ;;	
      s | S)
-		echo  " saindo "	
+		echo  " Saindo... "	
       ;;
       * )
-        echo  " Opção inválida "
+        echo  " Opção inválida!"
     ;;
 esac  
