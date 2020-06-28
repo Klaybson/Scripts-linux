@@ -8,10 +8,10 @@ echo -n " O que você deseja fazer? (A) Acessar Bk / (B)ackup pagina web (C) BK 
 read resposta
 case  "$resposta"  in
     a | A | " " )
-        if [ -d  " / var / backup " ]
+        if [ -d  " /var/backup" ]
 		then
 			echo  " Diretorio já criado"
-			cd / var / backup
+			cd /var/backup
 		else
 			echo "Diretorio naõ criado /var/backup"
 			mkdir /var/backup
@@ -23,7 +23,7 @@ case  "$resposta"  in
        tar -zcvf www- $ DATA .tar.gz / var / www  
     ;;
     c | C)
-       /etc/init.d/mysql stop 
+       		/etc/init.d/mysql stop 
 		tar -zcvf mysql- $ DATA .tar.gz / var / lib / mysql
 		/etc/init.d/mysql start 
 	;;	
