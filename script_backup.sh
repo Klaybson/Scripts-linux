@@ -3,14 +3,16 @@ echo "==============================Olá===================================="
 uname -isv
 hostname
 echo "===========O que você deseja fazer?===============
-(A)Diretorio de Backup.
-(B)Backup da pagina Web.
-(C)Backup do MySQL.
-(S)Sair?."
+(a)Diretorio de Backup.
+(b)Backup da pagina Web.
+(c)Backup do MySQL.
+(s)Sair?."
 read resposta
-case  "$resposta"  in
-    a | A | " " )
-        if [ ! -d "/var/backups" ]; then
+while [ "$resposta" != "s" ]
+do
+        case  "$resposta"  in
+            a | A | " " )
+                if [ ! -d "/var/backups" ]; then
                 mkdir /var/backups
                 cd /var/backups
                 echo "Diretorio criado"
@@ -19,11 +21,11 @@ case  "$resposta"  in
                 echo  " Diretorio já existe"
                 cd /var/backups
         fi
-    ;;
-    b | B)
-       #compacta com data e hora
-       tar -cvzf  www-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/www
-       #Verifica se o diretorio de backup existe. Se existir move
+           ;;
+           b | B)
+                #compacta com data e hora
+                tar -cvzf  www-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/www
+                #Verifica se o diretorio de backup existe. Se existir move
        if [ ! -d "/var/backups" ]; then
                 echo "Diretorio */var/backups* inexistente "
                 echo "Arquivo Salvo no diretorio:"
@@ -32,12 +34,12 @@ case  "$resposta"  in
                 mv *.gz /var/backups
         fi
 
-    ;;
-    c | C)
-        /etc/init.d/mysql stop
-        tar -cvzf mysql-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/lib/mysql
-        /etc/init.d/mysql start
-         if [ ! -d "/var/backups" ]; then
+       ;;
+       c | C)
+               /etc/init.d/mysql stop
+               tar -cvzf mysql-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/lib/mysql
+               /etc/init.d/mysql start
+        if [ ! -d "/var/backups" ]; then
                 echo "Diretorio */var/backups* inexistente "
                 echo "Arquivo salvo no diretorio:"
                 pwd
@@ -53,3 +55,5 @@ case  "$resposta"  in
     ;;
 
 esac
+read resposta
+done
