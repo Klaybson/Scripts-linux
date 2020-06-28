@@ -17,11 +17,11 @@ case  "$resposta"  in
         fi
     ;;
     b | B)
-            tar -cvzf www-$(date +%d-%m-%Y).tar.gz /var/www
+            tar -cvzf  www-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/www
     ;;
     c | C)
         /etc/init.d/mysql stop
-        tar -cvzf mysql-$(date +%d-%m-%Y).tar.gz /var/lib/mysql
+        tar -cvzf mysql-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/lib/mysql
         /etc/init.d/mysql start
     ;;
     d | D)
