@@ -57,5 +57,10 @@ do
     ;;
 
 esac
+echo "===========O que você deseja fazer?===============
+(a)Diretorio de Backup.
+(b)Backup da pagina Web.
+(c)Backup do MySQL.
+(s)Sair?."
 read resposta
 done
