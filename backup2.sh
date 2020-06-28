@@ -1,6 +1,6 @@
 #!/bin/bash
 # Variaveis
-DADOS = ' data +% d-% m-% y-% H.% M '
+DATAS='date +%d-%m-%y-%H.%M'
 uname -isv
 
 
@@ -19,11 +19,13 @@ case  "$resposta"  in
 	fi
     ;;
     b | B)
-       tar -zcvf www-$DATA.tar.gz /var/www  
+       tar -zcvf www-$DATA.tar.gz /var/www
+       mv  www-$DATA.tar.gz /var/backups 
     ;;
     c | C)
        	/etc/init.d/mysql stop 
-	tar -zcvf mysql- $ DATA .tar.gz /var/lib/mysql
+	tar -zcvf mysql-$DATA.tar.gz /var/lib/mysql
+	mv mysql-$DATA.tar.gz /var/backups
 	/etc/init.d/mysql start 
      ;;	
      s | S)
