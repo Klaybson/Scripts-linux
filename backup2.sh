@@ -15,7 +15,7 @@ case  "$resposta"  in
 	else
 		echo "Diretorio naõ criado /var/backups"
 		mkdir /var/backups
-		cd /var/backup
+		cd /var/backups
 		echo "Diretorio criado"
 	fi
     ;;
