@@ -8,12 +8,11 @@ echo -n " O que você deseja fazer? (A) Acessar Bk / (B)ackup pagina web (C) BK 
 read resposta
 case  "$resposta"  in
     a | A | " " )
-        if [ -d  " /var/backups" ]
+        if [ -d  "/var/backups" ]
 	then
 		echo  " Diretorio já existe"
 		cd /var/backups
 	else
-		echo "Diretorio naõ criado /var/backups"
 		mkdir /var/backups
 		cd /var/backups
 		echo "Diretorio criado"
