@@ -19,7 +19,7 @@ case  "$resposta"  in
 	fi
     ;;
     b | B)
-       tar -zcvf www- $ DATA .tar.gz / var / www  
+       tar -zcvf www-$DATA.tar.gz /var/www  
     ;;
     c | C)
        	/etc/init.d/mysql stop 
