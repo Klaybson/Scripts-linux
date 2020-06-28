@@ -1,6 +1,6 @@
 #!/bin/bash
 # Variaveis
-DATAS='date +%y-%m-%d-%H.%M'
+DATA='date +%y-%m-%d-%H.%M'
 uname -isv
 
 
