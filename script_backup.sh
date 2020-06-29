@@ -28,31 +28,20 @@ read resposta
 			fi
 		;;
 		b | B)
-			#compacta com data e hora
+			#compacta com data e hora diretorio de pagina web
 			tar cvzf  www-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/www
 			#Verifica se o diretorio de backup existe. Se existir move
 		    if [ ! -d "/var/backups" ]; then
 					echo "Diretorio */var/backups* inexistente "
-					echo "Arquivo Salvo no diretorio:"
+					echo "Arquivo Salvo no propio diretorio:"
 					pwd
 		    else
 					mv www-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/backups
-			fi
+		    fi
 		;;
 		c | C)
-			
-			/etc/init.d/mysql stop
-			tar cvzf mysql-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/lib/mysql
-			clear
-			/etc/init.d/mysql start
-			#Verifica se o diretorio de backup existe. Se existir move       
-			if [ ! -d "/var/backups" ]; then
-				echo "Diretorio */var/backups* inexistente "
-				echo "Arquivo salvo no diretorio:"
-				pwd
- 		    else
-				mv mysql-$(date +%d-%m-%Y_%H-%M-%S).tar.gz /var/backups
-			fi
+			#Faz o backup do banco de dados especifico!
+			mysqldump -u root -p mysql > /var/backups/mysql$(date +%d-%m-%Y_%H-%M-%S).sql		       
 		;;
 		s | S)
 			echo  " Saindo... "
