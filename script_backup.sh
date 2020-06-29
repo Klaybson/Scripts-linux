@@ -40,8 +40,13 @@ read resposta
 		    fi
 		;;
 		c | C)
-			#Faz o backup do banco de dados especifico!
-			mysqldump -u root -p mysql > /var/backups/mysql$(date +%d-%m-%Y_%H-%M-%S).sql		       
+		    if [ ! -d "/var/backups" ]; then
+					echo "Diretorio */var/backups* inexistente! "
+		    else
+					#Faz o backup do banco de dados especifico!
+					mysqldump -u root -p mysql > /var/backups/mysql$(date +%d-%m-%Y_%H-%M-%S).sql
+		    fi	
+					       
 		;;
 		s | S)
 			echo  " Saindo... "
