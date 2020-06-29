@@ -9,7 +9,7 @@ echo ""
 echo "============================== Escolha o servico =======================================
 (a)Diretorio de Backup.
 (b)Backup da pagina Web.
-(c)Backup do MySQL (stop e restart).
+(c)Backup do MySQL.
 (s)Sair?."
 read resposta
 
