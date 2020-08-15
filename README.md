@@ -7,7 +7,7 @@
 </p>
 <br/><br/>
 <h1>Backupt automatização<br/></h1>
-<h3>Edite o arquivo em: /etc/crontab<br/></h3>
+<h3>Edite o arquivo digite: crontab -e </h3>
 <h6>Minuto (0 a 59) | Hora (0 a 23) | Dia (1 a 31) | Mês (1 a 12)| Dia da semana (0 a 7) | Comando (comando a ser executado).</br></h6>
 <h4>25 6 * * * root /usr/local/bin/script-backup</h4><br/>
 <p>Ou seja, para cada campo será digitado um valor correspondente às regras acima. Detalhe: o dia da semana oferece oito possibilidades, sendo que os valores 0 e 7 significam domingo.<br/>
